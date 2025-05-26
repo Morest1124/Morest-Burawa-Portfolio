@@ -1,0 +1,22 @@
+/* Add to port.css */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #bdbdbd;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1.5px solid #7209b7;
+}

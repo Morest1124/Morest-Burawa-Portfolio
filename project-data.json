@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "title": "Project One",
+      "description": "A brief description of Project One.",
+      "image": "https://via.placeholder.com/300",
+      "link": "https://example.com/project-one"
+    },
+    {
+      "title": "Project Two",
+      "description": "A brief description of Project Two.",
+      "image": "https://via.placeholder.com/300",
+      "link": "https://example.com/project-two"
+    },
+    {
+      "title": "Project Three",
+      "description": "A brief description of Project Three.",
+      "image": "https://via.placeholder.com/300",
+      "link": "https://example.com/project-three"
+    },
+    {
+      "title": "Project Four",
+      "description": "A brief description of Project Four.",
+      "image": "https://via.placeholder.com/300",
+      "link": "https://example.com/project-four"
+    }
+  ]
+}

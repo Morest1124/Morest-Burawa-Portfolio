@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.nav {
+  width: 100%;
+  background: #fff;
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(67,97,238,0.10);
+  transition: background 0.3s ease-in-out;
+}
+
+.nav--scrolled {
+  background: #060229;
+  color: #fff;
+}
+
+.nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.nav__left {
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo {
+  margin-right: 24px;
+}
+
+.nav__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav__item {
+  margin-right: 24px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav__link:hover {
+  color: #4361ee;
+}
+
+.nav--scrolled .nav__link {
+  color: #fff;
+}
+
+
+.nav__button {
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.nav__button:hover {
+  background: #2f4cd4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 48px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container__left {
+  width: 50%;
+}
+
+.container__heading {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+}
+
+.container__text {
+  font-size: 1.25rem;
+  margin-bottom: 48px;
+}
+
+.container__buttons {
+  display: flex;
+}
+
+.container__button {
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-right: 24px;
+}
+
+.container__button:hover {
+  background: #2f4cd4;
+}
+
+.container__right {
+  width: 50%;
+  text-align: right;
+}
+
+.container__right img {
+  width: 100%;
+  height: auto;
+}
+
+.about {
+  background: #f7f7f7;
+  padding: 48px 24px;
+}
+
+.about__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about__left {
+  width: 50%;
+}
+
+.about__left img {
+  width: 100%;
+  height: auto;
+}
+
+.about__right {
+  width: 50%;
+  padding-left: 24px;
+}
+
+.about__heading {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.about__text {
+  font-size: 1.25rem;
+}
+
+.footer {
+  width: 100%;
+  background: #060229;
+  color: #fff;
+  text-align: center;
+  padding: 24px 0 12px 0;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 12px rgba(67,97,238,0.10);
+}
+  </style>
+
+</head>
+<body>
+  <div class="nav">
+    <div class="nav__container">
+      <div class="nav__left">
+        <a href="#" class="nav__logo">
+          <img src="logo.png" alt="Logo">
+        </a>
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a href="#" class="nav__link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav__right">
+        <button class="nav__button">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="container">
+      <div class="container__left">
+        <h1 class="container__heading">Headline</h1>
+        <p class="container__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at euismod massa. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        <div class="container__buttons">
+          <button class="container__button">Learn More</button>
+          <button class="container__button">Sign Up</button>
+        </div>
+      </div>
+      <div class="container__right">
+        <img src="image.png" alt="Image">
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="about__container">
+        <div class="about__left">
+          <img src="image2.png" alt="Image">
+        </div>
+        <div class="about__right">
+          <h2 class="about__heading">About Us</h2>
+          <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at euismod massa. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2023 Your Company</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.add('nav--scrolled');
+      } else {
+        nav.classList.remove('nav--scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

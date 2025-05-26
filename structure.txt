@@ -1,0 +1,12 @@
+Portfolio/
+│
+├── static/
+│     └── (your images, CSS, JS files)
+├── templates/
+│     ├── index.html
+│     ├── projects.html
+│     ├── contact.html
+│     ├── blog.html
+│     └── resume.html
+├── app.py
+└── requirements.txt

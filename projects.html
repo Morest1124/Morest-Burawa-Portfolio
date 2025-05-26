@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects | Morest Portfolio</title>
+    <link rel="stylesheet" href="port.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+    /* Extra project page styles and animations */
+    .projects-hero {
+        background: linear-gradient(90deg, #7209b7 0%, #4361ee 100%);
+        color: #fff;
+        padding: 60px 0 40px 0;
+        text-align: center;
+        box-shadow: 0 2px 16px rgba(67,97,238,0.08);
+        margin-bottom: 0;
+    }
+    .projects-hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 12px;
+        letter-spacing: 2px;
+        font-weight: 800;
+        text-shadow: 0 2px 16px #06022944;
+    }
+    .projects-hero p {
+        font-size: 1.2rem;
+        color: #e0d7fa;
+        margin-bottom: 0;
+    }
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        gap: 36px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 48px 18px 60px 18px;
+    }
+    .project-card {
+        background: #fff;
+        border-radius: 22px;
+        box-shadow: 0 4px 24px rgba(58,12,163,0.10), 0 1.5px 6px rgba(58,12,163,0.06);
+        padding: 0 0 28px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        animation: cardIn 0.8s cubic-bezier(.23,1.02,.32,1) forwards;
+    }
+    .project-card:nth-child(1) { animation-delay: 0.05s; }
+    .project-card:nth-child(2) { animation-delay: 0.15s; }
+    .project-card:nth-child(3) { animation-delay: 0.25s; }
+    .project-card:nth-child(4) { animation-delay: 0.35s; }
+    .project-card:nth-child(5) { animation-delay: 0.45s; }
+    .project-card:nth-child(6) { animation-delay: 0.55s; }
+    @keyframes cardIn {
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    .project-card::before {
+        content: "";
+        position: absolute;
+        top: -60px; left: -60px;
+        width: 140px; height: 140px;
+        background: radial-gradient(circle, #7209b722 60%, transparent 100%);
+        z-index: 0;
+    }
+    .project-card:hover {
+        transform: translateY(-10px) scale(1.04);
+        box-shadow: 0 12px 36px rgba(67,97,238,0.18), 0 4px 16px rgba(58,12,163,0.10), 0 0 32px #7209b7aa;
+    }
+    .project-image {
+        width: 100%;
+        max-width: 260px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 18px 18px 0 0;
+        margin-bottom: 0;
+        box-shadow: 0 2px 8px rgba(58,12,163,0.10);
+        background: #e0d7fa;
+        z-index: 1;
+        transition: transform 0.28s cubic-bezier(.23,1.02,.32,1), box-shadow 0.18s;
+    }
+    .project-card:hover .project-image {
+        transform: scale(1.06) rotate(-2deg);
+        box-shadow: 0 8px 32px rgba(67,97,238,0.18);
+    }
+    .project-title {
+        font-size: 1.35rem;
+        color: #3a0ca3;
+        margin: 18px 0 8px 0;
+        font-weight: 700;
+        z-index: 1;
+    }
+    .project-desc {
+        font-size: 1rem;
+        color: #4a4e69;
+        margin-bottom: 18px;
+        min-height: 48px;
+        z-index: 1;
+        padding: 0 18px;
+    }
+    .project-tags {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+    }
+    .project-tag {
+        background: linear-gradient(90deg, #7209b7 0%, #4361ee 100%);
+        color: #fff;
+        font-size: 0.85rem;
+        padding: 4px 14px;
+        border-radius: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        box-shadow: 0 1px 4px rgba(67,97,238,0.10);
+        margin-top: 4px;
+    }
+    .project-links {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin-top: 8px;
+    }
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(90deg, #7209b7 0%, #4361ee 100%);
+        color: #fff;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        font-size: 1.25rem;
+        box-shadow: 0 2px 8px rgba(67,97,238,0.10);
+        transition: background 0.2s, transform 0.18s;
+        text-decoration: none;
+        border: none;
+    }
+    .project-link:hover {
+        background: linear-gradient(90deg, #4361ee 0%, #7209b7 100%);
+        transform: scale(1.13) rotate(-8deg);
+        color: #fff;
+    }
+    @media (max-width: 900px) {
+        .projects-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 30px 6px 40px 6px;
+        }
+    }
+    @media (max-width: 700px) {
+        .projects-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            padding: 16px 2px 24px 2px !important;
+        }
+        .project-card {
+            padding: 0 0 14px 0 !important;
+            max-width: 98vw;
+            margin: 0 auto;
+        }
+        .project-image {
+            max-width: 100% !important;
+            height: 120px !important;
+        }
+    }
+    @media (max-width: 600px) {
+        .projects-hero {
+            padding: 30px 0 16px 0;
+        }
+        .projects-hero h1 {
+            font-size: 1.5rem;
+        }
+        .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 16px 2px 24px 2px;
+        }
+        .project-card {
+            padding: 0 0 14px 0;
+        }
+        .project-image {
+            max-width: 100%;
+            height: 120px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="Portfolio.html">Home</a></li>
+                <li><a class="active" href="view-my-work.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="projects-hero">
+        <h1><i class="fas fa-laptop-code"></i> My Projects</h1>
+        <p>Explore some of my best work, from web apps to creative experiments.</p>
+    </section>
+    <section>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Project 1" class="project-image">
+                <div class="project-title">Portfolio Website</div>
+                <div class="project-desc" style="white-space: pre-line;">
+As a creative graphic designer, I craft visually stunning designs that capture attention and convey messages effectively. With expertise in design principles, typography, and visual storytelling, I develop compelling graphics for various mediums, including digital platforms, print materials, and branding.
+
+Key Skills:
+1. Design software: Proficient in Photopea
+2. Visual storytelling: Ability to convey messages through creative visuals.
+3. Branding: Developing consistent visual identities for businesses and organizations.
+
+Strengths:
+1. Creativity: Bringing innovative ideas to life.
+2. Attention to detail: Ensuring high-quality designs.
+3. Adaptability: Adjusting designs to fit various formats and mediums.
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">HTML</span>
+                    <span class="project-tag">CSS</span>
+                    <span class="project-tag">JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" title="Live Demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Data Entry" class="project-image">
+                <div class="project-title">Data Entry</div>
+                <div class="project-desc" style="white-space: pre-line; margin-bottom: 18px;">
+Data Entry Clerk
+As a detail-oriented Data Entry Clerk, I accurately and efficiently enter, update, and maintain data in various systems. With strong organizational skills and attention to detail, I ensure data integrity and support business operations.
+
+Key Skills:
+1. Data entry: Accurate and efficient data entry into various systems.
+2. Attention to detail: Ensuring data accuracy and quality.
+3. Organizational skills: Managing and prioritizing data entry tasks.
+
+Strengths:
+1. Accuracy: Maintaining high levels of data accuracy.
+2. Efficiency: Completing data entry tasks efficiently.
+3. Reliability: Consistently meeting deadlines and expectations.
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Excel</span>
+                    <span class="project-tag">Word</span>
+                    <span class="project-tag">Powerpoint</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" title="Live Demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Project 3" class="project-image">
+                <div class="project-title">LOGO</div>
+                <div class="project-desc" style="white-space: pre-line; margin-bottom: 18px;">
+As a creative graphic designer, I craft visually stunning designs that capture attention and convey messages effectively. With expertise in design principles, typography, and visual storytelling, I develop compelling graphics for various mediums, including digital platforms, print materials, and branding.
+
+Key Skills:
+1. Design software: Proficient in Photopea
+2. Visual storytelling: Ability to convey messages through creative visuals.
+3. Branding: Developing consistent visual identities for businesses and organizations.
+
+Strengths:
+1. Creativity: Bringing innovative ideas to life.
+2. Attention to detail: Ensuring high-quality designs.
+3. Adaptability: Adjusting designs to fit various formats and mediums.
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Photopea</span>
+                    <span class="project-tag">Photoshop</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" title="Live Demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <img src="What Really Is Data Science A Super Simple Explanation For Anyone.png" alt="Project 4" class="project-image">
+                <div class="project-title">Data Science Student</div>
+                <div class="project-desc" style="white-space: pre-line; margin-bottom: 18px;">
+As a dedicated Data Science student, I'm passionate about uncovering insights and knowledge from data. I'm developing skills in machine learning, data visualization, and statistical analysis to drive informed decision-making.
+
+Key Areas of Study:
+1. Machine learning: Building predictive models.
+2. Data visualization: Communicating insights effectively.
+3. Statistical analysis: Understanding data distributions.
+
+Goals:
+1. Apply data science: Solve real-world problems.
+2. Stay updated: Follow industry trends.
+3. Develop skills: Enhance expertise.
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">Pandas</span>
+                    <span class="project-tag">Machine Learning</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" title="Live Demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="project-card">
+                <img src="a7ba78c41c1fa31d910c4867ef11656f.webp" alt="Project 5" class="project-image">
+                <div class="project-title">Data Entry</div>
+                <div class="project-desc" style="white-space: pre-line; margin-bottom: 18px;">
+Data Entry Clerk
+As a detail-oriented Data Entry Clerk, I accurately and efficiently enter, update, and maintain data in various systems. With strong organizational skills and attention to detail, I ensure data integrity and support business operations.
+
+Key Skills:
+1. Data entry: Accurate and efficient data entry into various systems.
+2. Attention to detail: Ensuring data accuracy and quality.
+3. Organizational skills: Managing and prioritizing data entry tasks.
+
+Strengths:
+1. Accuracy: Maintaining high levels of data accuracy.
+2. Efficiency: Completing data entry tasks efficiently.
+3. Reliability: Consistently meeting deadlines and expectations.
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Excel</span>
+                    <span class="project-tag">Word</span>
+                    <span class="project-tag">Powerpoint</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link" title="Live Demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="project-link" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 6 -->
+            <div class="project-card">
+                <img src="unnamed.png" alt="Project 6" class="project-image">
+                <div class="project-title">Smart Stock Guardian (Creative Animation)</div>
+                <div class="project-desc" style="white-space: pre-line; margin-bottom: 18px;">
+Smart Stock Guardian is a creative animation project designed to visualize and monitor stock levels in real time. Using engaging graphics and smooth transitions, this animation helps users intuitively understand inventory trends and alerts for low or surplus stock.
+
+Key Features:
+1. Real-time stock visualization with animated charts and icons.
+2. Alert system for low or surplus inventory.
+3. User-friendly interface for quick insights.
+
+Technologies:
+1. Figma
+2. Blender
+3. Flutterflow
+
+View the presentation:
+https://docs.google.com/presentation/d/1B9yVg-R61uj6xWrzAIzKQWSKvPxrczwKxd-weuFh3n0/present?slide=id.p
+                </div>
+                <div class="project-tags">
+                    <span class="project-tag">Figma</span>
+                    <span class="project-tag">Blender</span>
+                    <span class="project-tag">Flutterflow</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://docs.google.com/presentation/d/1B9yVg-R61uj6xWrzAIzKQWSKvPxrczwKxd-weuFh3n0/present?slide=id.p" class="project-link" title="Presentation" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="#" class="project-link" title="YouTube Video" onclick="event.preventDefault(); document.getElementById('yt-modal').style.display='block';">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="project-link" title="Picture Slides" onclick="event.preventDefault(); document.getElementById('slide-modal').style.display='block';">
+                        <i class="fas fa-images"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- YouTube Video Modal -->
+    <div id="yt-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
+        <div style="position:relative; width:90vw; max-width:700px; margin:40px auto;">
+            <span style="position:absolute;top:-32px;right:0;font-size:2rem;color:#fff;cursor:pointer;" onclick="document.getElementById('yt-modal').style.display='none';">&times;</span>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/Smt9hdD_EQk?si=ZtcS8Gp7ZcJlE6Ht" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- Google Slides Modal -->
+    <div id="slide-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
+        <div style="position:relative; width:90vw; max-width:900px; margin:40px auto;">
+            <span style="position:absolute;top:-32px;right:0;font-size:2rem;color:#fff;cursor:pointer;" onclick="document.getElementById('slide-modal').style.display='none';">&times;</span>
+            <iframe src="https://docs.google.com/presentation/d/13j7I8GA1O3V790TcLOYo68i-FzaWQWSPgU-InHUI8DI/embed?start=false&loop=false&delayms=3000" width="100%" height="480" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
