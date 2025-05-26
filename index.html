@@ -1,692 +1,417 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Morest Portfolio</title>
-    <!--<link rel="stylesheet" href="styles.css"/>-->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-        * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  html, body {
-    height: 100%;
-    min-height: 100%;
-}
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-.page-content {
-    flex: 1 0 auto;
-}
-  
-  body {
-    background-color: #012;
-    min-height: 200vh; 
-    font-family: 'Courier New', Courier, monospace;
-    background-image: repeating-linear-gradient(
-        120deg, #0a072d 0%, #060229 100%
-    );
-    background-repeat: repeat-y;
-    background-size: 100% 50vh; 
-  }
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background-color: #0a072d;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  .nav ul li {
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-    .nav ul li a:hover {
-        text-decoration: underline;
-        text-decoration-color: #c309dc;
-        transition: text-decoration-color 0.3s ease;
-    }
-    .nav ul li a.active {
-        text-decoration: underline;
-        text-decoration-color: #c309dc;
-        transition: text-decoration-color 0.3s ease;
-        font-weight: bold;
-    }
-    .nav ul li a.active:hover {
-            text-decoration: underline;
-            text-decoration-color: #f3eef4;;
-        }
-    .nav ul li a.active::after {
-        content: '';
-        position: static;
-        bottom: -8px;
-        left: 50%;
-        width: 100%;
-        height: 2px;
-        background-color: #c309dc;;
-        transform: translateX(-50%);
-        transition: width 0.3s ease;
-
-    }
-    .nav ul li a:hover::after {
-        width: 100%;
-        transition: width 0.3s ease;
-    }
-    .logo {
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #fff;
-        max-width: 55px;
-        max-height: 55px;
-        border: 1px solid #110e36;
-        margin: 1px;
-        border-radius: 30%;
-        background-color: #fff;
-    }
-    .logo img {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 90%;
-    }
-    .logo {
-        transition: transform 0.5s ease-in-out;
-        transform: scale(1);
-        transform-origin: left 90% center bottom;
-       }
-      
-      .logo:hover {
-        color: #d715c7;
-        transform: scale(2.8);
-        transform-origin: left center bottom;
-        transition: transform 0.5s ease-in-out;
-      }
-      
-      .container {
-        color: #fff;
-        position: absolute;
-        top: 10%;
-        left: 0%;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        z-index: -2;
-        gap: 20px;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin: 10px auto;
-              
-      }
-        
-    
-      .about  {
-        position: absolute;
-        bottom: 0%;
-        left: 10%;     
-           
-        color: #fff;
-        padding: 5px 5px;
-        border-radius: 5px;
-        font-size: 18px;
-        font-weight: bold;
-        justify-content: end;
-        align-items: center;
-        text-align: match parent;
-        max-height: 100%;
-        max-width: 80%;
-        padding-bottom: 8px;
-
-
-        
-      }
-        .about:hover {
-            color: #d715c7;
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in-out;
-        }
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 10px;
-            bottom: 0;
-            background-color: #060229;
-            border-radius: 5px;
-            z-index: -1;
-            justify-content: center;
-            align-items: center;
-        }
-        .about::after {
-            content: '';
-            position: absolute;
-            font-family: 'Courier New', Courier, monospace;
-            top: 0;
-            left: 0;
-            right: 10px;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            z-index: -1;
-            justify-content: center;
-            align-items: center;
-        }
-        .about p {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            text-align: start;
-            line-height: 1.5;
-            padding: 10px;
+        body {
+            background: #012;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
         }
-        .about h1 {
-            font-size: 24px;
-            font-weight: bold;
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 56px;
+            background: #0a072d;
             color: #fff;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 12px #3a0ca322;
+        }
+        .logo {
+            margin-left: 18px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            object-fit: contain;
+            border: 2px solid #110e36;
+        }
+        .nav-links {
+            display: flex;
+            margin-left: auto;
+            margin-right: 32px;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 18px;
+            border-radius: 22px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-links li a.active,
+        .nav-links li a:hover {
+            background: #7209b7;
+            color: #fff;
+        }
+        .hamburger {
+            display: none;
+        }
+        @media (max-width: 700px) {
+            .nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 56px;
+                left: -220px;
+                width: 180px;
+                background: #0a072d;
+                height: 100vh;
+                padding-top: 24px;
+                gap: 0;
+                transition: left 0.3s;
+                z-index: 150;
+            }
+            .nav-links.open {
+                left: 0;
+            }
+            .nav-links li {
+                margin: 0 0 18px 18px;
+            }
+            .hamburger {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 2rem;
+                color: #fff;
+                position: absolute;
+                right: 18px;
+                top: 10px;
+                z-index: 200;
+                cursor: pointer;
+            }
+        }
+        .hero {
+            margin-top: 80px;
             text-align: center;
-            line-height: 1.5;
-            padding: 10px;
-            margin: 0;
+            color: #fff;
+            padding: 48px 16px 32px 16px;
         }
-       
-.card {
-    position: relative;
-    width: 320px;
-    max-width: 95vw;
-    margin: 32px auto 0 auto;
-    background: #060229;
-    border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(67,97,238,0.13);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 28px 20px 20px 20px;
-    z-index: 2;
-    overflow: hidden;
-}
-
-
-.profile-img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(67,97,238,0.13);
-    border: 4px solid #fff;
-    margin-bottom: 18px;
-    margin-top: 0;
-}
-
-
-.card-content {
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    text-shadow: 0 2px 8px #3a0ca388, 0 1px 0 #fff8;
-}
-.card-content h4 {
-    margin-bottom: 8px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #f5f2f7; 
-    text-shadow: 0 2px 8px #7209b7aa, 0 1px 0 #fff8;
-}
-.card-content p {
-    margin: 4px 0;
-    font-size:1.2rem;
-    line-height: 1.4;
-    color: #f8f8ff; 
-    text-shadow: 0 1px 4px #3a0ca366;
-}
-        .card {
-            position: absolute;
-            top: 15%;
-            left: 15%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 400px;
-            background-color: #060229;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
-            
-            background-image: url('My_profile-removebg-preview.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-           
-            overflow: hidden;
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            color: #fff;
+            text-shadow: 0 2px 16px #06022944;
         }
-        .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(6,2,41,0.45); 
-    z-index: 1;
-    border-radius: 10px;
-}
-        .card > .container {
+        .hero p {
+            font-size: 1.2rem;
+            color: #e0d7fa;
+            margin-bottom: 0;
+        }
+        .profile-card {
+            background: #060229;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(67,97,238,0.13);
+            max-width: 340px;
+            margin: 32px auto 0 auto;
+            padding: 32px 20px 24px 20px;
+            text-align: center;
             position: relative;
             z-index: 2;
-        }    
-
-
-  
-  :root {
-    --ball-size: 42;
-    --impect-radius: 192;
-  }
-  
-  .baseLight {
-    position: fixed;
-    inset: calc(50% - (var(--ball-size) * 6px));
-    background-image: radial-gradient(closest-side, #fff, 0.08%, transparent);
-    transform: translate(calc(var(--mx) * 1px), calc(var(--my) * 1px));
-  }
-  
-  .shadows, .balls {
-    position: fixed;
-    inset: 50%;
-  
-    div {
-      position: absolute;
-  
-      --x: calc(cos(var(--i) / 6 * pi) * 3);
-      --y: calc(sin(var(--i) / 6 * pi) * 3);
-      --hue: calc((var(--x) + var(--y)) * 4);
-  
-      --dx: calc(var(--x) * var(--ball-size) - var(--mx, -9999));
-      --dy: calc(var(--y) * var(--ball-size) - var(--my, -9999));
-      --dist: calc(sqrt(var(--dx) * var(--dx) + var(--dy) * var(--dy)));
-      --dist-factor: calc((var(--impect-radius) - min(var(--dist), var(--impect-radius))) / var(--impect-radius));
-      --angle: atan2(var(--dy), var(--dx));
-  
-      --_translate: calc(var(--dist-factor) * var(--ball-size) * 1px);
-    }
-  }
-  
-  .shadow {
-    left: calc(var(--x) * var(--ball-size) * 1px);
-    top: calc((var(--y) - 0.5) * var(--ball-size) * 1px);
-    width: calc(var(--ball-size) * 2px);
-    height: calc(var(--ball-size) * 1px);
-    transform-origin: left;
-    background-image: linear-gradient(to right, #000, transparent);
-    opacity: var(--dist-factor, 0);
-    transform:
-      rotate(var(--angle))
-      translate(var(--_translate))
-      perspective(calc(var(--ball-size) * 2px))
-      rotateY(calc(var(--dist-factor) * -50deg - 20deg));
-  }
-    .shadow::before {
-        content: '';
-      
-        inset: calc(var(--ball-size) * -0.5px);
-        background-color: #fff;
-        border-radius: 50%;
-        max-height: 100%;
-        max-width: 100%;
-        background-image:
-        radial-gradient(closest-side, transparent 50%, #000000),
-        radial-gradient(circle at 30% 50%, #000000 35%, transparent 40%);
-        transform:
-        rotate(calc(var(--angle) * -1))
-        translate(calc(var(--ball-size) * var(--_tx, -0.2px)), calc(var(--ball-size) * -0.1px))
-        scaleY(var(--dist-factor, 0))
-        rotate(var(--angle));
-    }
-  .ball {
-    --_bpx1: calc(var(--dist-factor) * 100% - 100%);
-    --_bpx2: calc(var(--dist-factor) * -100% + 50%);
-  
-    left: calc((var(--x) - 0.5) * var(--ball-size) * 1px);
-    top: calc((var(--y) - 0.5) * var(--ball-size) * 1px);
-    width: calc(var(--ball-size) * 1px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: hsl(280, 61%, 50%);
-    background-image:
-      radial-gradient(circle at var(--_bpx1, -100%) 50%, #fff, 25%, transparent),
-      radial-gradient(circle at var(--_bpx2, 50%) 50%, transparent, #000a 100%);
-    background-repeat: no-repeat;
-    transform: rotate(var(--angle)) translate(var(--_translate));
-  
-    &::before, &::after {
-      content: '';
-      position: absolute;
-      inset: calc(var(--ball-size) * 0.3px);
-      background-color: #cfa8a8;
-      border-radius: 50%;
-      background-image:
-        radial-gradient(closest-side, transparent 0%, #000),
-        radial-gradient(circle at 30% 50%, #000 35%, transparent 40%);
-      transform:
-        rotate(calc(var(--angle) * -1))
-        translate(calc(var(--ball-size) * var(--_tx, -0.2px)), calc(var(--ball-size) * -0.1px))
-        scaleY(var(--dist-factor, 0))
-        rotate(var(--angle));        
-    }
-  
-    &::after {
-      --_tx: 0.2px;
-    }
-  }
-
-  .item3 {
-    grid-area: main;
-  }
-  
-  .item3 > h1 {
-    font-size: 30px;
-    margin-bottom: 7px;
-  }
-  
-  .item3 > p {
-    margin-bottom: 7px;
-  }
-
-
-  @media only screen and (max-width: 600px) {
-    /*.item1 {grid-area: 1 / span 6;}
-    .item2 {grid-area: 2 / span 6;}*/
-    .item3 {grid-area: 3 / span 6;}
-    /*.item4 {grid-area: 4 / span 6;}*/
-    .item5 {grid-area: 5 / span 6;}
-  }
-  
-  @media only screen and (min-width: 600px) {
-    /*.item1 {grid-area: 1 / span 6;}
-    .item2 {grid-area: 2 / span 6;}*/
-    .item3 {grid-area: 3 / span 6;}
-    /*.item4 {grid-area: 4 / span 6;}*/
-    .item5 {grid-area: 5 / span 6;}
-  }
-  
-  @media only screen and (min-width: 768px) {
-    /*.item1 {grid-area: 1 / span 6;}
-    .item2 {grid-area: 2 / span 6;}*/
-    .item3 {grid-area: 3 / span 6;}
-    /*.item4 {grid-area: 4 / span 6;}*/
-    .item5 {grid-area: 5 / span 6;}
-  }
-    /* Sidebar styles for small screens */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #fff;
-    position: absolute;
-    right: 18px;
-    top: 8px;
-    z-index: 200;
-    cursor: pointer;
-}
-
-@media (max-width: 700px) {
-    .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        height: 50px;
-        position: relative;
-    }
-    .hamburger {
-        display: block;
-    }
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -220px;
-        width: 200px;
-        height: 100vh;
-        background: #0a072d;
-        padding-top: 60px;
-        transition: left 0.3s;
-        z-index: 150;
-        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
-    }
-    .nav-links.open {
-        left: 0;
-    }
-    .nav-links ul li a{
-        margin: 28px 0 0 24px; 
-        font-size: 1.2rem;
-    }
-    .logo {
-        position: absolute;
-        left: 12px;
-        top: 6px;
-        z-index: 201;
-    }
-}
-
-/* Hide sidebar on large screens, show normal nav */
-@media (min-width: 701px) {
-    .nav-links {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        height: auto;
-        width: auto;
-        background: none;
-        box-shadow: none;
-        padding-top: 0;
-    }
-    .hamburger {
-        display: none;
-    }
-    .nav-links li {
-        margin: 0 20px;
-        font-size: 18px;
-    }
-}
-    @media (max-width: 700px) {
-    .container {
-        position: static;
-        top: auto;
-        left: auto;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-        margin: 10px auto;
-        gap: 18px;
-    }
-    .card {
-        position: static;
-        top: auto;
-        left: auto;
-        transform: none;
-        margin: 18px 0 0 0;
-        width: 90vw;
-        max-width: 340px;
-        height: auto;
-        min-height: 220px;
-    }
-    .about {
-        position: static;
-        left: auto;
-        bottom: auto;
-        max-width: 95vw;
-        margin: 18px 0 0 0;
-        padding-bottom: 18px;
-    }
-}
-.profile-img {
-    display: block;
-    margin: 32px auto 18px auto;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(67,97,238,0.13);
-    border: 4px solid #fff;
-    position: relative;
-    z-index: 2;
-}
-.card-content:hover h1,
-.card-content:hover p {
-    transform: scale(1.13);
-    transition: transform 0.35s cubic-bezier(.4,2,.6,1);
-    color: #f4f2f6; /
-}
-.card-content h1,
-.card-content p {
-    transition: transform 0.35s cubic-bezier(.4,2,.6,1);
-}
-    /*About and Footer stick to the bottom on large screens */
-@media (min-width: 701px) {
-    html, body {
-        height: 100%;
-        min-height: 100vh;
-    }
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    .main-content {
-        flex: 1 0 auto;
-    }
-    .about {
-        margin: 0 auto 0 auto;
-        width: 100%;
-        max-width: 900px;
-        bottom: 2px;
-    }
-}
+        }
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(67,97,238,0.13);
+            border: 4px solid #fff;
+            margin-bottom: 18px;
+        }
+        .profile-card h2 {
+            color: #f7eaff;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .profile-card p {
+            color: #f8f8ff;
+            margin: 4px 0;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        .pitch-video {
+            display: flex;
+            justify-content: center;
+            margin: 48px 0 0 0;
+            position: relative;
+            z-index: 4;
+        }
+        .pitch-video video {
+            max-width: 95vw;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(58,12,163,0.10);
+            background: #060229;
+        }
+        .baseLight, .shadows, .balls {
+            pointer-events: none;
+        }
+        .baseLight { /* Example styling for baseLight */
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100vh;
+            background: radial-gradient(circle at 60% 20%, #4361ee22 0%, transparent 70%);
+            z-index: 0;
+        }
+        .shadows, .balls {
+            position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .shadow, .ball {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        .shadow {
+            width: 60px; height: 60px;
+            background: #7209b733;
+            filter: blur(12px);
+            left: calc(50% + 180px * cos(var(--i) * 30deg));
+            top: calc(50% + 180px * sin(var(--i) * 30deg));
+        }
+        .ball {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #7209b7 0%, #4361ee 100%);
+            left: calc(50% + 200px * cos(var(--i) * 30deg));
+            top: calc(50% + 200px * sin(var(--i) * 30deg));
+            box-shadow: 0 2px 8px #7209b744;
+            animation: float 3s ease-in-out infinite alternate;
+            animation-delay: calc(var(--i) * 0.15s);
+        }
+        @keyframes float {
+            to { transform: translateY(-18px) scale(1.08);}
+        }
+        .about {
+            margin: 40px auto 0 auto;
+            max-width: 900px;
+            width: 100%;
+            z-index: 1;
+            background: transparent;
+            box-sizing: border-box;
+        }
+        .about h1, .about p {
+            position: relative;
+            z-index: 3;
+            background: #060229cc;
+            color: #fff;
+            margin: 0;
+            padding: 12px 18px;
+        }
+        .about h1 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .about p {
+            font-size: 1.1rem;
+            text-align: left;
+        }
+        @media (min-width: 1200px) {
+            .about {
+                max-width: 1200px;
+                font-size: 2.35rem;
+            }
+            .about h1 {
+                font-size: 3.2rem;
+            }
+            .about p {
+                font-size: 1.95rem;
+            }
+        }
+        @media (max-width: 700px) {
+            .profile-card {
+                max-width: 98vw;
+                padding: 18px 6px;
+            }
+            .about {
+                max-width: 98vw;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
-    <body>
-        <!-- Navigation Bar -->
-<div class="nav">
-    <img class="logo" src="Morest logo.png" alt="Logo"/>
-    <button class="hamburger" id="hamburger">&#9776;</button>
-    <ul class="nav-links" id="navLinks">
-        <li><a class="active" href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="resume.html">Resume</a></li>
-    </ul>
-</div>
-
-<!-- Main Content Container -->
-<div class="container">
-    <div class="text">
-        <!--
-        <h1>Hi, I am Morest</h1>
-        <h2>I am Data Sciences student at ALX</h2>
-        <p>Beyond Data Lies Sight to Spark Decisions, Igniting Growth.</p>
+<body>
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <img class="logo" src="Morest logo.png" alt="Logo"/>
+        <button class="hamburger" id="hamburger">&#9776;</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resume.html">Resume</a></li>
+        </ul>
     </div>
-    <div class="socials">
-        <a href="#"><img src="github-142-svgrepo-com.svg" alt="Facebook"></a>
-        <a href="#"><img src="twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="instagram.png" alt="Instagram"></a>
-        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <h2>Beyond Data Lies Sight to Spark Decisions, Igniting Growth.</h2>
+    </section>
+
+    <!-- Profile Card Section -->
+    <div class="profile-card">
+        <img src="My_profile-removebg-preview.png" class="profile-img" alt="Profile Image">
+        <h2>Morest Burawa</h2>
+        <p>Data Science Student</p>
+        <p>ALX Africa</p>
     </div>
-    -->
-</div>
 
-<!-- Decorative Lighting Effects -->
-<div class="baseLight"></div>
-<div class="shadows">
-    <!-- Shadow balls for background animation -->
-    <div class="shadow" style="--i: 0"></div>
-    <div class="shadow" style="--i: 1"></div>
-    <div class="shadow" style="--i: 2"></div>
-    <div class="shadow" style="--i: 3"></div>
-    <div class="shadow" style="--i: 4"></div>
-    <div class="shadow" style="--i: 5"></div>
-    <div class="shadow" style="--i: 6"></div>
-    <div class="shadow" style="--i: 7"></div>
-    <div class="shadow" style="--i: 8"></div>
-    <div class="shadow" style="--i: 9"></div>
-    <div class="shadow" style="--i: 10"></div>
-    <div class="shadow" style="--i: 11"></div>
-</div>
-<div class="balls">
-    <!-- Animated balls for background effect -->
-    <div class="ball" style="--i: 0"></div>
-    <div class="ball" style="--i: 1"></div>
-    <div class="ball" style="--i: 2"></div>
-    <div class="ball" style="--i: 3"></div>
-    <div class="ball" style="--i: 4"></div>
-    <div class="ball" style="--i: 5"></div>
-    <div class="ball" style="--i: 6"></div>
-    <div class="ball" style="--i: 7"></div>
-    <div class="ball" style="--i: 8"></div>
-    <div class="ball" style="--i: 9"></div>
-    <div class="ball" style="--i: 10"></div>
-    <div class="ball" style="--i: 11"></div>
-</div>
+    <!-- Pitch Video Section -->
+    <div class="pitch-video" style="display: flex; justify-content: center; margin: 48px 0 0 0; position: relative; z-index: 4;">
+        <div style="
+            background: linear-gradient(135deg, #060229 60%, #4361ee 100%);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(67,97,238,0.18), 0 2px 8px #7209b744;
+            padding: 24px 18px 18px 18px;
+            max-width: 540px;
+            width: 98vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2.5px solid #7209b7;
+            ">
+            <h2 style="color:#fff; margin-bottom: 18px; font-size: 1.4rem; letter-spacing: 1px; font-weight: 700;">
+                <i class="fas fa-video" style="color:#ffd700;"></i> My Pitch Video
+            </h2>
+            <video controls poster="video-thumbnail.jpg" style="
+                width: 100%;
+                max-width: 480px;
+                border-radius: 14px;
+                box-shadow: 0 4px 24px rgba(58,12,163,0.18);
+                background: #060229;
+                border: 2px solid #4361ee;
+                ">
+                <source src="your-pitch-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 
-<!-- Profile Card Section -->
-<div class="grid-container">
-    <div class="iteme3">
-        <div class="container">
-            <div class="card">
-                <img src="My_profile-removebg-preview.png" class="profile-img" alt="Profile Image">
-                <div class="card-content">
-                    <h1><b>Morest Burawa</b></h1>
-                    <p>Data Science Student</p>
-                    <p>ALX Africa</p>
-                    <p>Beyond Data Lies Sight to Spark Decisions, Igniting Growth.</p>
+    <!-- Decorative Lighting Effects (background animation) -->
+    <div class="baseLight"></div>
+    <div class="shadows">
+        <div class="shadow" style="--i: 0"></div>
+        <div class="shadow" style="--i: 1"></div>
+        <div class="shadow" style="--i: 2"></div>
+        <div class="shadow" style="--i: 3"></div>
+        <div class="shadow" style="--i: 4"></div>
+        <div class="shadow" style="--i: 5"></div>
+        <div class="shadow" style="--i: 6"></div>
+        <div class="shadow" style="--i: 7"></div>
+        <div class="shadow" style="--i: 8"></div>
+        <div class="shadow" style="--i: 9"></div>
+        <div class="shadow" style="--i: 10"></div>
+        <div class="shadow" style="--i: 11"></div>
+    </div>
+    <div class="balls">
+        <div class="ball" style="--i:0"></div>
+        <div class="ball" style="--i:1"></div>
+        <div class="ball" style="--i:2"></div>
+        <div class="ball" style="--i:3"></div>
+        <div class="ball" style="--i:4"></div>
+        <div class="ball" style="--i:5"></div>
+        <div class="ball" style="--i:6"></div>
+        <div class="ball" style="--i:7"></div>
+        <div class="ball" style="--i:8"></div>
+        <div class="ball" style="--i:9"></div>
+        <div class="ball" style="--i:10"></div>
+        <div class="ball" style="--i:11"></div>
+        <div class="ball" style="--i:12"></div>
+        <div class="ball" style="--i:13"></div>
+        <div class="ball" style="--i:14"></div>
+        <div class="ball" style="--i:15"></div>
+        <div class="ball" style="--i:16"></div>
+        <div class="ball" style="--i:17"></div>
+        <div class="ball" style="--i:18"></div>
+        <div class="ball" style="--i:19"></div>
+    </div>
+
+    <!-- About Section: sticky and scrollable at the bottom -->
+    <div class="about">
+        <h1>About Me</h1>
+        <p>
+            Morest Burawa is a data science student at ALX. He believes Beyond Data Lies Sight to Spark Decisions, Igniting Growth, focused on empowering businesses with data-driven decisions and growth strategies. His goal is to complete his studies in the next year and have a business of his own. He received his third certificate of leaderships in three consecutive years and completed his matric successfully.
+        </p>
+    </div>
+
+    <!-- Add a gap between About and Footer -->
+    <div style="height: 160px;"></div>
+
+    <!-- Footer -->
+    <footer style="width:100%;background:#0a072d;color:#fff;text-align:center;padding:24px 0 18px 0;font-size:1rem;letter-spacing:1px;box-shadow:0 -2px 12px rgba(67,97,238,0.10);">
+        <div style="max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: flex-start; gap: 24px;">
+            <!-- Recommendations/Reviews -->
+            <div style="flex:1; min-width:180px;">
+                <strong>Recommendations</strong>
+                <ul style="list-style:none;padding:0;margin:8px 0 0 0;font-size:0.97rem;">
+                    <li>⭐ “Professional and creative!”</li>
+                    <li>⭐ “Great communication and results.”</li>
+                    <li>⭐ “Highly recommended for data projects.”</li>
+                </ul>
+            </div>
+            <!-- Ratings -->
+            <div style="flex:1; min-width:120px;">
+                <strong>Rating</strong>
+                <div style="font-size:1.3rem; margin:8px 0;">
+                    <span style="color:#ffd700;">★★★★★</span>
+                    <span style="font-size:1rem;color:#e0d7fa;">(4.9/5)</span>
+                </div>
+            </div>
+            <!-- Visitors -->
+            <div style="flex:1; min-width:120px;">
+                <strong>Visitors</strong>
+                <div style="margin:8px 0;">
+                    <span id="visitor-count" style="font-size:1.2rem;">1,234</span>
+                </div>
+            </div>
+            <!-- Location -->
+            <div style="flex:1; min-width:120px;">
+                <strong>Location</strong>
+                <div style="margin:8px 0;">
+                    <span><i class="fas fa-map-marker-alt" style="color:#7209b7;"></i> Johannesburg, South Africa</span>
+                </div>
+            </div>
+            <!-- Social Links -->
+            <div style="flex:1; min-width:160px;">
+                <strong>Connect</strong>
+                <div style="margin:8px 0;">
+                    <a href="https://github.com/" target="_blank" style="color:#fff;margin:0 8px;text-decoration:none;"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/" target="_blank" style="color:#fff;margin:0 8px;text-decoration:none;"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:your@email.com" style="color:#fff;margin:0 8px;text-decoration:none;"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <div style="margin-top:18px;opacity:0.8;">
+            &copy; 2025 Morest Burawa. All rights reserved.
+        </div>
+    </footer>
 
-<!-- About Section -->
-<div class="about">
-    <h1>About Me</h1>
-    <p>Morest Burawa is a data science student at ALX. He believes Beyond Data Lies Sight to Spark Decisions, Igniting Growth, focused on empowering businesses with data-driven decisions and growth strategies. His goal is to complete his studies in the next year and have a business of his own. He received his third certificate of leaderships in three consecutive years and completed his matric successfully.</p>
-</div>
-
-<!-- Scripts for interactivity -->
-<script src="script.js"></script>
-<script>
-    // Mousemove effect for background animation
-    window.addEventListener('mousemove', (e) => {
-        document.body.style.setProperty('--mx', e.clientX - (window.innerWidth / 2));
-        document.body.style.setProperty('--my', e.clientY - (window.innerHeight / 2));
-    });
-
-    // Hamburger menu toggle for mobile navigation
-    document.getElementById('hamburger').onclick = function() {
-        document.getElementById('navLinks').classList.toggle('open');
-    };
-</script>
-        
-    </body>
-    </html>
+    <!-- Font Awesome for icons (add in <head> if not already present) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        // Example: Simulate visitor count increment (replace with real analytics if needed)
+        let count = localStorage.getItem('visitorCount') || 1234;
+        count++;
+        localStorage.setItem('visitorCount', count);
+        document.getElementById('visitor-count').textContent = count.toLocaleString();
+    </script>
+    <script>
+        // Hamburger menu toggle for mobile navigation
+        document.getElementById('hamburger').onclick = function() {
+            document.getElementById('navLinks').classList.toggle('open');
+        };
+    </script>
+</body>
+</html>
