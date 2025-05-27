@@ -47,23 +47,33 @@ header p {
     opacity: 0.92;
 }
 
-/* Navbar */
+/* Logo style for all pages */
+.logo {
+    margin-left: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    object-fit: contain;
+    border: 2px solid #110e36;
+    box-shadow: 0 2px 8px #3a0ca322;
+}
+
+/* Optional: Navbar horizontal alignment */
 .navbar {
-    width: 100%;
+    display: flex;
+    align-items: center;
     background: #0a072d;
-    box-shadow: 0 2px 12px #0a072d22;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 0 24px;
+    height: 56px;
+    box-shadow: 0 2px 12px #3a0ca322;
 }
 .navbar ul {
+    display: flex;
+    margin-left: auto;
+    gap: 28px;
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
 }
 .navbar a {
     color: #fff;
@@ -76,9 +86,23 @@ header p {
     letter-spacing: 0.5px;
     display: block;
 }
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 18px;
+    border-radius: 22px;
+    transition: background 0.2s, color 0.2s;
+}
 .navbar a.active,
 .navbar a:hover {
     background: #0a072d;
+    color: #fff;
+}
+.navbar ul li a.active,
+.navbar ul li a:hover {
+    background: #7209b7;
     color: #fff;
 }
 
@@ -266,7 +290,14 @@ header p {
     resize: none;
 }
 .contact-form textarea {
-    min-height: 90px;
+    width: 100%;
+    min-width: 200px;
+    max-width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    font-size: 1.15rem;
+    resize: vertical;
+    box-sizing: border-box;
 }
 .contact-form button.btn {
     background: #0a072d;

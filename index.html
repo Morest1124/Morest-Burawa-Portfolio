@@ -4,241 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Morest Portfolio</title>
-    <style>
-        body {
-            background: #012;
-            min-height: 100vh;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-        }
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 56px;
-            background: #0a072d;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            z-index: 100;
-            box-shadow: 0 2px 12px #3a0ca322;
-        }
-        .logo {
-            margin-left: 18px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #fff;
-            object-fit: contain;
-            border: 2px solid #110e36;
-        }
-        .nav-links {
-            display: flex;
-            margin-left: auto;
-            margin-right: 32px;
-            gap: 28px;
-            list-style: none;
-        }
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 8px 18px;
-            border-radius: 22px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .nav-links li a.active,
-        .nav-links li a:hover {
-            background: #7209b7;
-            color: #fff;
-        }
-        .hamburger {
-            display: none;
-        }
-        @media (max-width: 700px) {
-            .nav-links {
-                flex-direction: column;
-                position: fixed;
-                top: 56px;
-                left: -220px;
-                width: 180px;
-                background: #0a072d;
-                height: 100vh;
-                padding-top: 24px;
-                gap: 0;
-                transition: left 0.3s;
-                z-index: 150;
-            }
-            .nav-links.open {
-                left: 0;
-            }
-            .nav-links li {
-                margin: 0 0 18px 18px;
-            }
-            .hamburger {
-                display: block;
-                background: none;
-                border: none;
-                font-size: 2rem;
-                color: #fff;
-                position: absolute;
-                right: 18px;
-                top: 10px;
-                z-index: 200;
-                cursor: pointer;
-            }
-        }
-        .hero {
-            margin-top: 80px;
-            text-align: center;
-            color: #fff;
-            padding: 48px 16px 32px 16px;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            color: #fff;
-            text-shadow: 0 2px 16px #06022944;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #e0d7fa;
-            margin-bottom: 0;
-        }
-        .profile-card {
-            background: #060229;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(67,97,238,0.13);
-            max-width: 340px;
-            margin: 32px auto 0 auto;
-            padding: 32px 20px 24px 20px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        .profile-img {
-            width: 110px;
-            height: 110px;
-            object-fit: cover;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 4px 16px rgba(67,97,238,0.13);
-            border: 4px solid #fff;
-            margin-bottom: 18px;
-        }
-        .profile-card h2 {
-            color: #f7eaff;
-            margin-bottom: 8px;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-        .profile-card p {
-            color: #f8f8ff;
-            margin: 4px 0;
-            font-size: 1.1rem;
-            line-height: 1.4;
-        }
-        .pitch-video {
-            display: flex;
-            justify-content: center;
-            margin: 48px 0 0 0;
-            position: relative;
-            z-index: 4;
-        }
-        .pitch-video video {
-            max-width: 95vw;
-            border-radius: 14px;
-            box-shadow: 0 4px 24px rgba(58,12,163,0.10);
-            background: #060229;
-        }
-        .baseLight, .shadows, .balls {
-            pointer-events: none;
-        }
-        .baseLight { /* Example styling for baseLight */
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 100vh;
-            background: radial-gradient(circle at 60% 20%, #4361ee22 0%, transparent 70%);
-            z-index: 0;
-        }
-        .shadows, .balls {
-            position: absolute;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .shadow, .ball {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.7;
-        }
-        .shadow {
-            width: 60px; height: 60px;
-            background: #7209b733;
-            filter: blur(12px);
-            left: calc(50% + 180px * cos(var(--i) * 30deg));
-            top: calc(50% + 180px * sin(var(--i) * 30deg));
-        }
-        .ball {
-            width: 32px; height: 32px;
-            background: linear-gradient(135deg, #7209b7 0%, #4361ee 100%);
-            left: calc(50% + 200px * cos(var(--i) * 30deg));
-            top: calc(50% + 200px * sin(var(--i) * 30deg));
-            box-shadow: 0 2px 8px #7209b744;
-            animation: float 3s ease-in-out infinite alternate;
-            animation-delay: calc(var(--i) * 0.15s);
-        }
-        @keyframes float {
-            to { transform: translateY(-18px) scale(1.08);}
-        }
-        .about {
-            margin: 40px auto 0 auto;
-            max-width: 900px;
-            width: 100%;
-            z-index: 1;
-            background: transparent;
-            box-sizing: border-box;
-        }
-        .about h1, .about p {
-            position: relative;
-            z-index: 3;
-            background: #060229cc;
-            color: #fff;
-            margin: 0;
-            padding: 12px 18px;
-        }
-        .about h1 {
-            font-size: 1.5rem;
-            text-align: center;
-        }
-        .about p {
-            font-size: 1.1rem;
-            text-align: left;
-        }
-        @media (min-width: 1200px) {
-            .about {
-                max-width: 1200px;
-                font-size: 2.35rem;
-            }
-            .about h1 {
-                font-size: 3.2rem;
-            }
-            .about p {
-                font-size: 1.95rem;
-            }
-        }
-        @media (max-width: 700px) {
-            .profile-card {
-                max-width: 98vw;
-                padding: 18px 6px;
-            }
-            .about {
-                max-width: 98vw;
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -269,33 +36,21 @@
     </div>
 
     <!-- Pitch Video Section -->
-    <div class="pitch-video" style="display: flex; justify-content: center; margin: 48px 0 0 0; position: relative; z-index: 4;">
-        <div style="
-            background: linear-gradient(135deg, #060229 60%, #4361ee 100%);
-            border-radius: 22px;
-            box-shadow: 0 8px 32px rgba(67,97,238,0.18), 0 2px 8px #7209b744;
-            padding: 24px 18px 18px 18px;
-            max-width: 540px;
-            width: 98vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 2.5px solid #7209b7;
-            ">
-            <h2 style="color:#fff; margin-bottom: 18px; font-size: 1.4rem; letter-spacing: 1px; font-weight: 700;">
-                <i class="fas fa-video" style="color:#ffd700;"></i> My Pitch Video
+    <div class="pitch-video">
+        <div class="pitch-video-inner">
+            <h2 class="pitch-video-title">
+                <i class="fas fa-video"></i> My Pitch Video
             </h2>
-            <video controls poster="video-thumbnail.jpg" style="
-                width: 100%;
-                max-width: 480px;
-                border-radius: 14px;
-                box-shadow: 0 4px 24px rgba(58,12,163,0.18);
-                background: #060229;
-                border: 2px solid #4361ee;
-                ">
-                <source src="your-pitch-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div class="pitch-video-frame">
+                <iframe 
+                    width="100%" height="270"
+                    src="https://www.youtube.com/embed/fdgFKTkp3SU"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </div>
 
@@ -338,76 +93,79 @@
         <div class="ball" style="--i:19"></div>
     </div>
 
-    <!-- About Section: sticky and scrollable at the bottom -->
+    <!-- About Section -->
     <div class="about">
         <h1>About Me</h1>
         <p>
-            Morest Burawa is a data science student at ALX. He believes Beyond Data Lies Sight to Spark Decisions, Igniting Growth, focused on empowering businesses with data-driven decisions and growth strategies. His goal is to complete his studies in the next year and have a business of his own. He received his third certificate of leaderships in three consecutive years and completed his matric successfully.
+            Hi, my name is Morest Burawa and I am a passionate Data Science student at ALX Africa. My journey in data and technology began with a strong curiosity for how information can drive impactful decisions. Before joining ALX, I gained valuable experience as a data entry clerk intern, where I collaborated with multiple teams to capture and clean data for major investment projects. One of my proudest achievements was working with Nzalo Carers, where I partnered with a team of six to successfully capture and register data for over 5,000 students from various schools and provinces for a national competition.
+            <br><br>
+            Throughout my academic and professional journey, I have developed strong skills in teamwork, leadership, and problem-solving. I am committed to continuous learning and adaptability, always seeking new challenges and opportunities to grow. My goal is to empower businesses and organizations with data-driven insights that spark innovation and growth.
+            <br><br>
+            In addition to my collaborative projects, I have built my own professional portfolio to showcase my skills and achievements. I am driven by a belief that beyond data lies the vision to spark decisions and ignite growth. I look forward to completing my studies at ALX, further developing my expertise, and ultimately building a business of my own. I am proud to have received three consecutive leadership certificates and to have completed my matric successfully.
+            <br><br>
+            Thank you for visiting my portfolio. I am excited to connect, collaborate, and contribute to meaningful projects in the world of data science!
         </p>
     </div>
 
     <!-- Add a gap between About and Footer -->
-    <div style="height: 160px;"></div>
+    <div class="about-footer-gap"></div>
 
     <!-- Footer -->
-    <footer style="width:100%;background:#0a072d;color:#fff;text-align:center;padding:24px 0 18px 0;font-size:1rem;letter-spacing:1px;box-shadow:0 -2px 12px rgba(67,97,238,0.10);">
-        <div style="max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: flex-start; gap: 24px;">
+    <footer class="footer">
+        <div class="footer-flex">
             <!-- Recommendations/Reviews -->
-            <div style="flex:1; min-width:180px;">
+            <div class="footer-section">
                 <strong>Recommendations</strong>
-                <ul style="list-style:none;padding:0;margin:8px 0 0 0;font-size:0.97rem;">
+                <ul class="footer-list">
                     <li>⭐ “Professional and creative!”</li>
                     <li>⭐ “Great communication and results.”</li>
                     <li>⭐ “Highly recommended for data projects.”</li>
                 </ul>
             </div>
             <!-- Ratings -->
-            <div style="flex:1; min-width:120px;">
+            <div class="footer-section">
                 <strong>Rating</strong>
-                <div style="font-size:1.3rem; margin:8px 0;">
+                <div class="footer-rating">
                     <span style="color:#ffd700;">★★★★★</span>
-                    <span style="font-size:1rem;color:#e0d7fa;">(4.9/5)</span>
+                    <span class="footer-rating-score">(4.9/5)</span>
                 </div>
             </div>
             <!-- Visitors -->
-            <div style="flex:1; min-width:120px;">
+            <div class="footer-section">
                 <strong>Visitors</strong>
-                <div style="margin:8px 0;">
-                    <span id="visitor-count" style="font-size:1.2rem;">1,234</span>
+                <div>
+                    <span id="visitor-count" class="footer-visitors">1,234</span>
                 </div>
             </div>
             <!-- Location -->
-            <div style="flex:1; min-width:120px;">
+            <div class="footer-section">
                 <strong>Location</strong>
-                <div style="margin:8px 0;">
-                    <span><i class="fas fa-map-marker-alt" style="color:#7209b7;"></i> Johannesburg, South Africa</span>
+                <div>
+                    <span><i class="fas fa-map-marker-alt" style="color:#7209b7;font-size:1.3em;"></i> Centurion, South Africa</span>
                 </div>
             </div>
             <!-- Social Links -->
-            <div style="flex:1; min-width:160px;">
+            <div class="footer-section">
                 <strong>Connect</strong>
-                <div style="margin:8px 0;">
-                    <a href="https://github.com/" target="_blank" style="color:#fff;margin:0 8px;text-decoration:none;"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/" target="_blank" style="color:#fff;margin:0 8px;text-decoration:none;"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:your@email.com" style="color:#fff;margin:0 8px;text-decoration:none;"><i class="fas fa-envelope"></i></a>
+                <div class="footer-social">
+                    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
-        <div style="margin-top:18px;opacity:0.8;">
+        <div class="footer-copyright">
             &copy; 2025 Morest Burawa. All rights reserved.
         </div>
     </footer>
 
-    <!-- Font Awesome for icons (add in <head> if not already present) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
         // Example: Simulate visitor count increment (replace with real analytics if needed)
         let count = localStorage.getItem('visitorCount') || 1234;
         count++;
         localStorage.setItem('visitorCount', count);
         document.getElementById('visitor-count').textContent = count.toLocaleString();
-    </script>
-    <script>
+
         // Hamburger menu toggle for mobile navigation
         document.getElementById('hamburger').onclick = function() {
             document.getElementById('navLinks').classList.toggle('open');
