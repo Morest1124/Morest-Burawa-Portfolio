@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Contact | Morest Portfolio</title>
     <link rel="stylesheet" href="port.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,12 +21,36 @@
     </header>
     <section class="container">
         <h2 style="color:#3a0ca3; margin-bottom:24px;">Get in Touch</h2>
-        <form class="contact-form" autocomplete="off">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <!-- Make sure your form has these IDs -->
+        <form id="contactForm" class="contact-form" autocomplete="off">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
             <button class="btn" type="submit">Send Message</button>
         </form>
+
+        <script>
+        const SECRET_KEY = "082411"; // Change this to something only you know!
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const date = new Date().toLocaleString();
+            let messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+            // Encrypt the message object as a string
+            const encrypted = CryptoJS.AES.encrypt(
+                JSON.stringify({ name, email, message, date }),
+                SECRET_KEY
+            ).toString();
+            messages.unshift(encrypted);
+            localStorage.setItem('contactMessages', JSON.stringify(messages));
+            alert('Message sent!');
+            this.reset();
+        });
+        </script>
+
         <div style="margin-top:32px;">
             <p>Email: <a href="mailto:morestburawa05@gmail.com">morestburawa05@gmail.com</a></p>
             <p>LinkedIn: <a href="https://linkedin.com/in/morest-burawa" target="_blank">linkedin.com/in/morest-burawa</a></p>

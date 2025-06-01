@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post a Blog | Morest Portfolio</title>
+    <link rel="stylesheet" href="port.css">
+    <style>
+        .form-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 32px 24px;
+        }
+        .form-container h2 {
+            color: #3a0ca3;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .btn {
+            background: #3a0ca3;
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .btn:hover {
+            background: #560bad;
+        }
+        .success-message {
+            color: #219653;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .blog-list {
+            max-width: 700px;
+            margin: 40px auto 0 auto;
+        }
+        .blog-item {
+            background: #f8f8ff;
+            border-radius: 8px;
+            padding: 18px 16px 12px 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .blog-item-title {
+            color: #3a0ca3;
+            margin-bottom: 4px;
+        }
+        .blog-item-date {
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        .blog-item-summary {
+            color: #444;
+            margin-bottom: 8px;
+        }
+        .blog-item-content {
+            color: #222;
+            margin-bottom: 10px;
+        }
+        .blog-actions {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+        .blog-actions button {
+            background: none;
+            border: none;
+            color: #3a0ca3;
+            cursor: pointer;
+            margin-left: 8px;
+            font-size: 1em;
+        }
+        .blog-actions button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img class="logo" src="Morest logo.png" alt="Logo"/>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <h2>Post a New Blog</h2>
+        <div class="success-message" id="successMsg">Your blog post has been submitted!</div>
+        <form id="blogPostForm" autocomplete="off">
+            <div class="form-group">
+                <label for="title">Blog Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="summary">Summary</label>
+                <input type="text" id="summary" name="summary" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Blog Content</label>
+                <textarea id="content" name="content" rows="8" required></textarea>
+            </div>
+            <button type="submit" class="btn" id="submitBtn">Post Blog</button>
+        </form>
+    </div>
+    <div class="blog-list" id="blogList"></div>
+    <script>
+        // Helper to get today's date in YYYY-MM-DD and readable format
+        function getToday() {
+            const d = new Date();
+            return d.toISOString().split('T')[0];
+        }
+        function getReadableDate() {
+            return new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // Load blogs from localStorage
+        function loadBlogs() {
+            return JSON.parse(localStorage.getItem('blogs') || '[]');
+        }
+        function saveBlogs(blogs) {
+            localStorage.setItem('blogs', JSON.stringify(blogs));
+        }
+        function renderBlogs() {
+            const blogList = document.getElementById('blogList');
+            blogList.innerHTML = '';
+            const blogs = loadBlogs();
+            blogs.forEach((blog, idx) => {
+                const div = document.createElement('div');
+                div.className = 'blog-item';
+                div.innerHTML = `
+                    <div class="blog-actions">
+                        <button onclick="editBlog(${idx})">Edit</button>
+                        <button onclick="deleteBlog(${idx})">Delete</button>
+                    </div>
+                    <div class="blog-item-title">${blog.title}</div>
+                    <div class="blog-item-date">${blog.date}</div>
+                    <div class="blog-item-summary">${blog.summary}</div>
+                    <div class="blog-item-content">${blog.content.replace(/\n/g, '<br>')}</div>
+                `;
+                blogList.appendChild(div);
+            });
+        }
+
+        // Add blog
+        document.getElementById('blogPostForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('title').value.trim();
+            const summary = document.getElementById('summary').value.trim();
+            const content = document.getElementById('content').value.trim();
+            const date = getReadableDate();
+            let blogs = loadBlogs();
+
+            if (editingIdx !== null) {
+                // Edit mode
+                blogs[editingIdx] = { title, summary, content, date };
+                editingIdx = null;
+                document.getElementById('submitBtn').textContent = 'Post Blog';
+            } else {
+                blogs.unshift({ title, summary, content, date });
+            }
+            saveBlogs(blogs);
+            renderBlogs();
+            document.getElementById('successMsg').style.display = 'block';
+            setTimeout(() => document.getElementById('successMsg').style.display = 'none', 2000);
+            this.reset();
+        });
+
+        // Edit and Delete
+        let editingIdx = null;
+        window.editBlog = function(idx) {
+            const blogs = loadBlogs();
+            const blog = blogs[idx];
+            document.getElementById('title').value = blog.title;
+            document.getElementById('summary').value = blog.summary;
+            document.getElementById('content').value = blog.content;
+            editingIdx = idx;
+            document.getElementById('submitBtn').textContent = 'Update Blog';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        window.deleteBlog = function(idx) {
+            if (confirm('Delete this blog post?')) {
+                let blogs = loadBlogs();
+                blogs.splice(idx, 1);
+                saveBlogs(blogs);
+                renderBlogs();
+            }
+        };
+
+        // Initial render
+        renderBlogs();
+    </script>
+</body>
+</html>

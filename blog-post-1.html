@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Posts | Morest Portfolio</title>
+    <link rel="stylesheet" href="port.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <style>
+        .timeline-post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin: 40px auto;
+            padding: 24px 20px 16px 20px;
+            max-width: 700px;
+            position: relative;
+        }
+        .timeline-date {
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        .reactors {
+            display: flex;
+            gap: 18px;
+            margin-top: 16px;
+            color: #3a0ca3;
+            font-size: 1.1em;
+            align-items: center;
+        }
+        .reactors span {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .reactors .icon {
+            font-size: 1.2em;
+        }
+        .reactors .icon.love {
+            color: #e63946;
+            filter: none !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img class="logo" src="Morest logo.png" alt="Logo"/>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="active" href="blog.html">Blog</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dynamic blogs from localStorage will appear first -->
+    <div id="timeline"></div>
+
+    <!-- Static/original blog posts below (these stay at the bottom) -->
+    <section class="timeline-post" id="how-i-built-my-portfolio">
+        <div class="timeline-date">June 1, 2025</div>
+        <h2 style="color:#3a0ca3;">How I Built My Portfolio</h2>
+        <p style="color:#555;">A behind-the-scenes look at the design and code powering this site.</p>
+        <hr>
+        <p>
+            Building my portfolio was both a technical and creative journey. I started by outlining the core sections I wanted: About, Projects, Blog, and Contact. 
+            I chose HTML, CSS, and a bit of JavaScript for interactivity, keeping the design clean and responsive.
+        </p>
+        <p>
+            The biggest challenge was making the site both visually appealing and easy to navigate. I experimented with color palettes and typography until I found a style that felt personal yet professional.
+        </p>
+        <p>
+            For the blog, I created a simple grid layout to showcase posts. Each post links to a dedicated page for a full read, like this one. 
+            I also added a suggestion box so visitors can request topics.
+        </p>
+        <p>
+            Hosting was done via GitHub Pages, which made deployment seamless. I continue to update the site as I learn new skills and complete new projects.
+        </p>
+        <div class="reactors">
+            <span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>
+        </div>
+    </section>
+
+    <section class="timeline-post" id="top-5-web-dev-tools">
+        <div class="timeline-date">May 28, 2025</div>
+        <h2 style="color:#3a0ca3;">Top 5 Web Dev Tools in 2025</h2>
+        <p style="color:#555;">Discover the essential tools every modern developer should know.</p>
+        <ul>
+            <li><strong>Visual Studio Code</strong> – The go-to code editor for most developers.</li>
+            <li><strong>GitHub Copilot</strong> – AI-powered coding assistant for faster development.</li>
+            <li><strong>Figma</strong> – Collaborative design tool for UI/UX.</li>
+            <li><strong>Netlify</strong> – Easy deployment and hosting for static sites.</li>
+            <li><strong>Postman</strong> – API testing and collaboration made simple.</li>
+        </ul>
+        <div class="reactors">
+            <span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>
+        </div>
+    </section>
+
+    <section class="timeline-post" id="design-tips-for-developers">
+        <div class="timeline-date">May 20, 2025</div>
+        <h2 style="color:#3a0ca3;">Design Tips for Developers</h2>
+        <p style="color:#555;">Simple design principles to make your projects stand out.</p>
+        <ol>
+            <li>Keep it simple and uncluttered.</li>
+            <li>Use consistent colors and fonts.</li>
+            <li>Make sure your site is mobile-friendly.</li>
+            <li>Pay attention to spacing and alignment.</li>
+            <li>Test your design with real users.</li>
+        </ol>
+        <div class="reactors">
+            <span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>
+        </div>
+    </section>
+
+    <section class="timeline-post" id="my-journey-into-data-science">
+        <div class="timeline-date">May 10, 2025</div>
+        <h2 style="color:#3a0ca3;">My Journey into Data Science</h2>
+        <p style="color:#555;">How I transitioned from curiosity to building real-world data projects at ALX Africa.</p>
+        <p>
+            My interest in data science began with a curiosity about how data shapes our world. At ALX Africa, I gained hands-on experience with Python, machine learning, and real-world datasets. 
+            Each project taught me new skills and deepened my passion for extracting insights from data.
+        </p>
+        <div class="reactors">
+            <span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>
+        </div>
+    </section>
+
+    <section class="timeline-post" id="lessons-from-leadership">
+        <div class="timeline-date">April 30, 2025</div>
+        <h2 style="color:#3a0ca3;">Lessons from Leadership</h2>
+        <p style="color:#555;">What three years of consecutive leadership awards taught me about teamwork and growth.</p>
+        <p>
+            Leadership is about empowering others and fostering collaboration. Over the years, I learned the importance of communication, empathy, and continuous learning. 
+            These lessons have shaped my approach to both team projects and personal growth.
+        </p>
+        <div class="reactors">
+            <span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>
+        </div>
+    </section>
+
+    <section class="timeline-post" id="favorite-python-libraries">
+        <div class="timeline-date">April 15, 2025</div>
+        <h2 style="color:#3a0ca3;">Favorite Python Libraries</h2>
+        <p style="color:#555;">My go-to Python libraries for data analysis, visualization, and machine learning.</p>
+        <ul>
+            <li><strong>Pandas</strong> – Data manipulation and analysis.</li>
+            <li><strong>Matplotlib</strong> – Data visualization.</li>
+            <li><strong>Scikit-learn</strong> – Machine learning algorithms.</li>
+            <li><strong>Seaborn</strong> – Statistical data visualization.</li>
+            <li><strong>NumPy</strong> – Numerical computing.</li>
+        </ul>
+        <div class="reactors">
+            <span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>
+        </div>
+    </section>
+
+    <a href="blog.html" class="btn" style="margin:40px auto 24px auto;display:block;max-width:700px;">&#8592; Back to Blog</a>
+    <script>
+    const BLOG_SECRET_KEY = "082411"; // Use the same key in blog-post-form.html and blog.html
+
+    function loadBlogs() {
+        const encryptedBlogs = JSON.parse(localStorage.getItem('blogs') || '[]');
+        return encryptedBlogs.map(enc => {
+            try {
+                const bytes = CryptoJS.AES.decrypt(enc, BLOG_SECRET_KEY);
+                return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+            } catch (e) {
+                return null;
+            }
+        }).filter(Boolean);
+    }
+    function slugify(text) {
+        return text.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+    }
+    function renderTimeline() {
+        const blogs = loadBlogs();
+        const timeline = document.getElementById('timeline');
+        timeline.innerHTML = '';
+        blogs.forEach((blog, idx) => {
+            const id = slugify(blog.title);
+            timeline.innerHTML += `
+                <section class="timeline-post" id="${id}">
+                    <div class="timeline-date">${blog.date}</div>
+                    <h2 style="color:#3a0ca3;">${blog.title}</h2>
+                    <p style="color:#555;">${blog.summary}</p>
+                    <hr>
+                    <div class="blog-item-content" style="color:#222;">${blog.content.replace(/\n/g, '<br>')}</div>
+                    <div class="reactors">
+                        <span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>
+                    </div>
+                </section>
+            `;
+        });
+
+        // Add reactors functionality
+        document.querySelectorAll('.timeline-post').forEach(function(post) {
+            const reactorsDiv = post.querySelector('.reactors');
+            reactorsDiv.innerHTML = '<span class="icon" style="filter: grayscale(1) brightness(2);">&#128420;</span>';
+            reactorsDiv.addEventListener('click', function handler() {
+                reactorsDiv.innerHTML = `
+                    <span class="react-choice" data-reaction="like">&#128077;</span>
+                    <span class="react-choice" data-reaction="love" style="color:#e63946;">&#10084;&#65039;</span>
+                    <span class="react-choice" data-reaction="cool">&#128526;</span>
+                    <span class="react-choice" data-reaction="funny">&#128514;</span>
+                    <span class="react-choice" data-reaction="fire">&#128293;</span>
+                    <span class="react-choice" data-reaction="idea">&#128161;</span>
+                    <span class="react-choice" data-reaction="clap">&#128079;</span>
+                    <span class="react-choice" data-reaction="flex">&#128170;</span>
+                `;
+                reactorsDiv.removeEventListener('click', handler);
+                reactorsDiv.querySelectorAll('.react-choice').forEach(function(choice) {
+                    choice.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (choice.dataset.reaction === "love") {
+                            reactorsDiv.innerHTML = `<span class="icon love">&#10084;&#65039;</span>`;
+                        } else {
+                            reactorsDiv.innerHTML = `<span class="icon">${choice.innerHTML}</span>`;
+                        }
+                        reactorsDiv.addEventListener('click', handler, { once: true });
+                    });
+                });
+            }, { once: true });
+        });
+    }
+    renderTimeline();
+    </script>
+</body>
+</html>
