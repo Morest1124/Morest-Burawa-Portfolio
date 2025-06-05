@@ -130,13 +130,6 @@
                     <span class="footer-rating-score">(4.9/5)</span>
                 </div>
             </div>
-            <!-- Visitors -->
-            <div class="footer-section">
-                <strong>Visitors</strong>
-                <div>
-                    <span id="visitor-count" class="footer-visitors">1,234</span>
-                </div>
-            </div>
             <!-- Location -->
             <div class="footer-section">
                 <strong>Location</strong>
@@ -160,12 +153,6 @@
     </footer>
 
     <script>
-        // Example: Simulate visitor count increment (replace with real analytics if needed)
-        let count = localStorage.getItem('visitorCount') || 1234;
-        count++;
-        localStorage.setItem('visitorCount', count);
-        document.getElementById('visitor-count').textContent = count.toLocaleString();
-
         // Hamburger menu toggle for mobile navigation
         document.getElementById('hamburger').onclick = function() {
             document.getElementById('navLinks').classList.toggle('open');

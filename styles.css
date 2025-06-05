@@ -3,8 +3,8 @@
     margin: 0;
     padding: 0;
 }
-  
-  body {
+
+body {
     background: #012;
     min-height: 100vh;
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -267,7 +267,7 @@
     }
 }
 
-/* Footer styles moved from inline */
+/* Footer  */
 .footer {
     width:100%;
     background:#0a072d;
@@ -305,9 +305,7 @@
     font-size:1rem;
     color:#e0d7fa;
 }
-.footer-visitors {
-    font-size:1.2rem;
-}
+
 .footer-social {
     margin:8px 0;
     white-space:nowrap;
